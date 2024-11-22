@@ -10,7 +10,6 @@ services:
       - "8000:8000"
     volumes:
       - ./app:/app
-      - "C:/Users/Public/autofts_config:/app/data" 
     networks:
       - webnet
 
