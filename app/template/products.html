@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple FastAPI UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, p {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        button {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Advantest Config!</h1>
+    <p>This is a simple HTML user interface served by FastAPI.</p>
+    <div class="container">
+        <h1>Product Submission Form</h1>
+        <form action="/products/create" method="post">
+            <input type="text" name="product_name" placeholder="Product Name" required>
+            <input type="text" name="contract_manufacturer" placeholder="Manufacturer" required>
+            <input type="email" name="created_by" placeholder="Created By" required>
+            <input type="email" name="modified_by" placeholder="Modified By" required>
+            <input type="text" name="path_fail_level" placeholder="Fail Level" required>
+            <input type="text" name="path_repair_list" placeholder="Repair List" required>
+            <input type="text" name="test_site" placeholder="Test Site" required>
+            <input type="text" name="mrun_input" placeholder="MRUN Input" required>
+            <input type="number" name="number_of_channels" placeholder="Number of Channels" min="1" max="50" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
