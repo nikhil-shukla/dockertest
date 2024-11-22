@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: autofts_config
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+      - "C:/Users/Public/autofts_config:/app/data" 
+    networks:
+      - webnet
+
+#   frontend:
+#     build:
+#       context: ./ia_ames_react_poc
+#       dockerfile: Dockerfile
+#     container_name: react_frontend
+#     ports:
+#       - "3000:3000"
+#     networks:
+#       - webnet
+
+networks:
+  webnet:
+    driver: bridge

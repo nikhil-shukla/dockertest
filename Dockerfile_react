@@ -1,0 +1,28 @@
+# ia_ames_react_poc/Dockerfile
+
+# Use an official Node.js runtime as a parent image
+FROM node:18-alpine
+
+# Set the working directory to /frontend
+WORKDIR /frontend
+
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json* /frontend/
+
+# Install any needed packages using npm
+RUN npm install
+
+# Copy the rest of the application code
+COPY . /frontend
+
+# Build the React app for production
+RUN npm run build
+
+# Use 'serve' to serve the static files
+RUN npm install -g serve
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Serve the build folder on port 3000
+CMD ["serve", "-s", "build", "-l", "3000"]
